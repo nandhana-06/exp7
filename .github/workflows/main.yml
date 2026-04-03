@@ -1,0 +1,16 @@
+name: Secret Demo
+
+on: [push]
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Use Secret
+      run: echo "Secret is used safely"
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
